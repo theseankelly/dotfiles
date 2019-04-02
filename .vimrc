@@ -16,10 +16,12 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 call plug#end()
 
-colorscheme gruvbox
 set background=dark
-set t_Co=256
-set termguicolors
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+colorscheme gruvbox
 
 set number
 set tabstop=2
