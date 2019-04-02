@@ -8,7 +8,18 @@
 "	      for Amiga:  s:.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
-colorscheme desert
+
+
+" vim-plug Plugins.
+call plug#begin('~/.vim/plugged')
+Plug 'morhetz/gruvbox'
+call plug#end()
+
+colorscheme gruvbox
+set background=dark
+set t_Co=256
+set termguicolors
+
 set number
 set tabstop=2
 set shiftwidth=2
