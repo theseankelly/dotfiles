@@ -33,6 +33,12 @@ set colorcolumn=80
 set wildmode=longest,list,full
 set wildmenu
 
+" Workaround to enable block cursor on mintty
+let &t_ti.="\e[1 q"
+let &t_SI.="\e[5 q"
+let &t_EI.="\e[1 q"
+let &t_te.="\e[0 q"
+
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
