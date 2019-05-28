@@ -1,0 +1,7 @@
+alias config='/usr/bin/git --git-dir=$HOME/.mycfg/ --work-tree=$HOME'
+
+# Maximum number of cores for building
+alias make='make -j $(nproc)'
+
+# Use python3 as default python interpreter
+alias python='python3'
