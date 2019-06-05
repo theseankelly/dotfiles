@@ -5,5 +5,5 @@ alias make='make -j $(nproc)'
 
 # Set up virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/projects
+export PROJECT_HOME=$HOME/dev/python
 source /usr/local/bin/virtualenvwrapper.sh
