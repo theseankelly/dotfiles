@@ -1,43 +1,89 @@
-" An example for a vimrc file.
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Sean Kelly's vimrc configuration
 "
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2008 Dec 17
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+" Ideas/settings thanks to:
+" - Allan MacGregor
+"   (https://github.com/amacgregor/dot-files/blob/master/vimrc)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set encoding=utf8
 
-" vim-plug Plugins.
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox'
+" General functionality/tools
 Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+
+" Themes
+Plug 'morhetz/gruvbox'
 call plug#end()
 
-set background=dark
-if (has("termguicolors"))
-  set termguicolors
-endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General Configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-colorscheme gruvbox
-
+" Show linenumbers
 set number
+" Enable highlighting of the current line
+set cursorline
+" Draw a vertical line on column 80 (for wrapping)
+set colorcolumn=80
+
+" Tab settings
 set tabstop=2
 set shiftwidth=2
 set	expandtab
 
-set colorcolumn=80
+" Always show the status line
+set laststatus=2
 
+" Autocomplete settings
 set wildmode=longest,list,full
 set wildmenu
+
+" Use 'elite mode' to disable cursor movement
+let g:elite_mode=1
 
 " Workaround to enable block cursor on mintty
 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
+
+" Theme and Appearance
+syntax on
+set t_Co=256
+set background=dark
+" `if (has("termguicolors"))
+" `  set termguicolors
+" `endif
+
+colorscheme gruvbox
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Custom key mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+map <C-n> :NERDTreeToggle<CR>
+map <C-m> :TagbarToggle<CRn
+
+" Disable arrow movement, resize splits instead
+" Courtesy of Allan MacGregor
+if get(g:, 'elite_mode')
+  nnoremap <Up>     :resize +2<CR>
+  nnoremap <Down>   :resize -2<CR>
+  nnoremap <Left>   :vertical resize +2<CR>
+  nnoremap <Right>  :vertical resize -2<CR>
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Everything below here comes from the default vimrc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -124,3 +170,4 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
