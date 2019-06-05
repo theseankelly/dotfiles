@@ -70,7 +70,7 @@ colorscheme gruvbox
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 map <C-n> :NERDTreeToggle<CR>
-map <C-m> :TagbarToggle<CRn
+map <C-m> :TagbarToggle<CR>
 
 " Disable arrow movement, resize splits instead
 " Courtesy of Allan MacGregor
