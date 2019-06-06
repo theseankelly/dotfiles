@@ -6,6 +6,9 @@
 "   (https://github.com/amacgregor/dot-files/blob/master/vimrc)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
 set encoding=utf8
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -15,18 +18,23 @@ set encoding=utf8
 call plug#begin('~/.vim/plugged')
 " General functionality/tools
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
+Plug 'vim-syntastic/syntastic'
 
 " Themes
 Plug 'morhetz/gruvbox'
+
+" vim-devicons must be last plugin, per documentation
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+set nowrap
 " Show linenumbers
 set number
 " Enable highlighting of the current line
@@ -48,6 +56,24 @@ set wildmenu
 
 " Use 'elite mode' to disable cursor movement
 let g:elite_mode=1
+
+" Airline settings
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline#extensions#tabline#enabled = 1
+
+
+" Recommended Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Workaround to enable block cursor on mintty
 let &t_ti.="\e[1 q"
@@ -89,10 +115,6 @@ endif
 if v:progname =~? "evim"
   finish
 endif
-
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
