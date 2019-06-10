@@ -4,6 +4,8 @@
 " Ideas/settings thanks to:
 " - Allan MacGregor
 "   (https://github.com/amacgregor/dot-files/blob/master/vimrc)
+" - Sidney Liebrand
+"   (https://medium.com/@sidneyliebrand/a-collection-of-vim-key-binds-4d227c9a455)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Use Vim settings, rather than Vi settings (much better!).
@@ -41,6 +43,9 @@ set number
 set cursorline
 " Draw a vertical line on column 80 (for wrapping)
 set colorcolumn=80
+
+" Showing mode is redundant with vim-airline
+set noshowmode
 
 " Tab settings
 set tabstop=2
@@ -82,30 +87,57 @@ let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 
 " Theme and Appearance
-syntax on
-set t_Co=256
 set background=dark
-" `if (has("termguicolors"))
-" `  set termguicolors
-" `endif
-
+if (has("termguicolors"))
+  set termguicolors
+endif
+let g:gruvbox_italic=1
 colorscheme gruvbox
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom key mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-map <C-n> :NERDTreeToggle<CR>
-map <C-m> :TagbarToggle<CR>
+" Leader Key
+let mapleader = ","
 
-" Disable arrow movement, resize splits instead
-" Courtesy of Allan MacGregor
-if get(g:, 'elite_mode')
-  nnoremap <Up>     :resize +2<CR>
-  nnoremap <Down>   :resize -2<CR>
-  nnoremap <Left>   :vertical resize +2<CR>
-  nnoremap <Right>  :vertical resize -2<CR>
-endif
+" Basic functions
+nnoremap <Leader>w :w<CR>
+
+" Navigation
+nmap <Up> <Nop>
+nmap <Down> <Nop>
+nmap <Left> <Nop>
+nmap <Right> <Nop>
+
+map $ <Nop>
+map ^ <Nop>
+map { <Nop>
+map } <Nop>
+
+noremap K {
+noremap J }
+noremap H ^
+noremap L $
+
+" Make Y consistent with C and D (c$, d$, y$ instead of c$, d$, yy)
+nnoremap Y y$
+
+" Use tab to manage indentation
+nmap >> <Nop>
+nmap << <Nop>
+vmap << <Nop>
+vmap >> <Nop>
+nnoremap <Tab> >>
+nnoremap <S-Tab> <<
+vnoremap <Tab> >><Esc>gv
+vnoremap <S-Tab> <<<Esc>gv
+
+" Extension bindings
+map <Leader>n :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+map <Leader>m :TagbarToggle<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Everything below here comes from the default vimrc
