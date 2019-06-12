@@ -26,6 +26,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'vim-syntastic/syntastic'
 
+" Markdown
+Plug 'reedes/vim-pencil'
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+
 " Themes
 Plug 'morhetz/gruvbox'
 
@@ -59,8 +63,24 @@ set laststatus=2
 set wildmode=longest,list,full
 set wildmenu
 
+" Make vimdiff open for write
+set noro
+
 " Use 'elite mode' to disable cursor movement
 let g:elite_mode=1
+
+" vim-instant-markdown settings
+let g:instant_markdown_autostart = 0
+let g:instant_markdown_slow = 1
+
+" vim-pencil settings
+let g:pencil#WrapModeDefault = 'hard'
+let g:pencil#textwidth = 78
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
 
 " Airline settings
 let g:airline_powerline_fonts = 1
@@ -88,9 +108,7 @@ let &t_te.="\e[0 q"
 
 " Theme and Appearance
 set background=dark
-if (has("termguicolors"))
-  set termguicolors
-endif
+set t_Co=256
 let g:gruvbox_italic=1
 colorscheme gruvbox
 
@@ -137,7 +155,6 @@ vnoremap <S-Tab> <<<Esc>gv
 map <Leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 map <Leader>m :TagbarToggle<CR>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Everything below here comes from the default vimrc
