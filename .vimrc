@@ -23,8 +23,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'majutsushi/tagbar'
 Plug 'vim-syntastic/syntastic'
+Plug 'ntpeters/vim-better-whitespace'
 
 " Markdown
 Plug 'reedes/vim-pencil'
@@ -99,6 +101,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
+
+" vim-better-whitespace
+let g:better_whitespace_enabled = 1
+"let g:strip_whitespace_on_save = 1
+"let g:strip_whitespace_confirm = 0
 
 " Workaround to enable block cursor on mintty
 let &t_ti.="\e[1 q"
