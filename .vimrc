@@ -27,6 +27,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'majutsushi/tagbar'
 Plug 'vim-syntastic/syntastic'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Markdown
 Plug 'reedes/vim-pencil'
@@ -49,6 +51,9 @@ set number
 set cursorline
 " Draw a vertical line on column 80 (for wrapping)
 set colorcolumn=80
+
+" Always use system clipboard
+set clipboard=unnamedplus
 
 " Showing mode is redundant with vim-airline
 set noshowmode
