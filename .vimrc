@@ -25,7 +25,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'majutsushi/tagbar'
-Plug 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -73,6 +73,10 @@ set wildmenu
 " Make vimdiff open for write
 set noro
 
+" Put backup/swp files in dedicated directory to avoid cluttering projects
+set backupdir=~/.vim/backup/
+set directory=~/.vim/backup/
+
 " Use 'elite mode' to disable cursor movement
 let g:elite_mode=1
 
@@ -97,10 +101,10 @@ endif
 let g:airline#extensions#tabline#enabled = 1
 
 
-" Recommended Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"" Recommended Syntastic settings
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
