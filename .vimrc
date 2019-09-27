@@ -52,6 +52,8 @@ set cursorline
 " Draw a vertical line on column 80 (for wrapping)
 set colorcolumn=80
 
+set splitright
+
 " Always use system clipboard
 set clipboard=unnamedplus
 
