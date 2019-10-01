@@ -5,5 +5,15 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev/python
 source /usr/local/bin/virtualenvwrapper.sh
 
+source $HOME/gruvbox_256palette.sh
+
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
 # Use vim keybindings on bash shell
 set -o vi
