@@ -30,6 +30,10 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plug 'jeaye/color_coded'
+
 " Markdown
 Plug 'reedes/vim-pencil'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
