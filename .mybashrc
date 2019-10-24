@@ -1,11 +1,11 @@
 alias config='/usr/bin/git --git-dir=$HOME/.mycfg/ --work-tree=$HOME'
 
-# Set up virtualenvwrapper
+## Set up virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev/python
-source /usr/local/bin/virtualenvwrapper.sh
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
-source $HOME/gruvbox_256palette.sh
+source $HOME/.gruvbox_256palette.sh
 
 function _update_ps1() {
     PS1=$(powerline-shell $?)
