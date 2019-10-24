@@ -22,5 +22,6 @@ fi
 git clone --separate-git-dir=$HOME/.mycfg /path/to/repo $HOME/mycfg_tmp
 rsync --recursive --verbose --exclude '.git' mycfg_tmp/ $HOME/
 rm -r mycfg_tmp
+config config status.showUntrackedFiles no
 ```
 
