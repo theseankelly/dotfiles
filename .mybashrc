@@ -1,6 +1,9 @@
 alias config='/usr/bin/git --git-dir=$HOME/.mycfg/ --work-tree=$HOME'
 
-## Set up virtualenvwrapper
+# Add local bin folder to path
+export PATH=$HOME/bin:$PATH
+
+# Set up virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev/python
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
