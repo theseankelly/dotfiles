@@ -1,0 +1,39 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Custom key mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Leader Key
+let mapleader = ","
+
+" Basic functions
+nnoremap <Leader>w :w<CR>
+
+" Navigation
+nmap <Up> <Nop>
+nmap <Down> <Nop>
+nmap <Left> <Nop>
+nmap <Right> <Nop>
+
+map $ <Nop>
+map ^ <Nop>
+map { <Nop>
+map } <Nop>
+
+noremap K {
+noremap J }
+noremap H ^
+noremap L $
+
+" Make Y consistent with C and D (c$, d$, y$ instead of c$, d$, yy)
+nnoremap Y y$
+
+" Use tab to manage indentation
+nmap >> <Nop>
+nmap << <Nop>
+vmap << <Nop>
+vmap >> <Nop>
+nnoremap <Tab> >>
+nnoremap <S-Tab> <<
+vnoremap <Tab> >><Esc>gv
+vnoremap <S-Tab> <<<Esc>gv
+
