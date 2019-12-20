@@ -14,10 +14,19 @@ set nocompatible
 set encoding=utf8
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Environment
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has('win32') || has('win64')
+  let g:env = 'WINDOWS'
+else
+  let g:env = 'LINUX'
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('$HOME/.vim/plugged')
 " General functionality/tools
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -25,14 +34,19 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'majutsushi/tagbar'
-"Plug 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-Plug 'jeaye/color_coded'
+if (g:env == 'LINUX')
+  Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
+  Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
+  Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+  Plug 'jeaye/color_coded'
+else " WINDOWS
+  " Note -- requires FZF be installed via chocolately
+  Plug 'junegunn/fzf'
+endif
+Plug 'junegunn/fzf.vim'
 
 " Markdown
 Plug 'reedes/vim-pencil'
@@ -59,7 +73,7 @@ set colorcolumn=80
 set splitright
 
 " Always use system clipboard
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 " Showing mode is redundant with vim-airline
 set noshowmode
@@ -80,8 +94,8 @@ set wildmenu
 set noro
 
 " Put backup/swp files in dedicated directory to avoid cluttering projects
-set backupdir=~/.vim/backup/
-set directory=~/.vim/backup/
+set backupdir=$HOME/.vim/backup/
+set directory=$HOME/.vim/backup/
 
 " Use 'elite mode' to disable cursor movement
 let g:elite_mode=1
