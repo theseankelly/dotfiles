@@ -97,6 +97,9 @@ set noro
 set backupdir=$HOME/.vim/backup/
 set directory=$HOME/.vim/backup/
 
+" Custom search path for tags
+set tags=./tags,./TAGS,tags,TAGS,~/tags
+
 " Use 'elite mode' to disable cursor movement
 let g:elite_mode=1
 
