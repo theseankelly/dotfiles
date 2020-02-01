@@ -11,13 +11,10 @@ source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 source $HOME/.gruvbox_256palette.sh
 
-function _update_ps1() {
-    PS1=$(powerline-shell $?)
-}
-
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+source /usr/local/lib/python3.6/dist-packages/powerline/bindings/bash/powerline.sh
 
 # Use vim keybindings on bash shell
 set -o vi

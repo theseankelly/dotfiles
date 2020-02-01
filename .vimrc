@@ -28,8 +28,6 @@ endif
 
 call plug#begin('$HOME/.vim/plugged')
 " General functionality/tools
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -75,7 +73,7 @@ set splitright
 " Always use system clipboard
 set clipboard^=unnamed,unnamedplus
 
-" Showing mode is redundant with vim-airline
+" Showing mode is redundant with powerline
 set noshowmode
 
 " Tab settings
@@ -116,13 +114,10 @@ augroup pencil
   autocmd FileType text         call pencil#init()
 augroup END
 
-" Airline settings
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline#extensions#tabline#enabled = 1
-
+" Enable powerline
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
 
 "" Recommended Syntastic settings
 "set statusline+=%#warningmsg#

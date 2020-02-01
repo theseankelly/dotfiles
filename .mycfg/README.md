@@ -25,3 +25,8 @@ rm -r mycfg_tmp
 config config status.showUntrackedFiles no
 ```
 
+## Dependent Utilities
+```
+
+* [powerline](https://github.com/powerline/powerline)
+  * Must use python3 via pip: `sudo python3 -m pip install powerline-status`
