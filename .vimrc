@@ -73,16 +73,10 @@ set splitright
 " Always use system clipboard
 set clipboard^=unnamed,unnamedplus
 
-" Showing mode is redundant with powerline
-set noshowmode
-
 " Tab settings
 set tabstop=2
 set shiftwidth=2
 set	expandtab
-
-" Always show the status line
-set laststatus=2
 
 " Autocomplete settings
 set wildmode=longest,list,full
@@ -115,6 +109,10 @@ augroup pencil
 augroup END
 
 " Enable powerline
+" Recommended settings from documentation
+set noshowmode
+set showtabline=2
+set laststatus=2
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
