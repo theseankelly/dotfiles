@@ -109,8 +109,15 @@
 		"gruvbox:gray":         [ 245, "928374"],
 		"gruvbox:fg4":          [ 246, "a89984"],
 		"gruvbox:fg3":          [ 248, "bdae93"],
-		"gruvbox:fg2":          [ 250, "d5c4a1"]
+		"gruvbox:fg2":          [ 250, "d5c4a1"],
 
+    "gruvbox:darkred":      [ 88, "9d0006"],
+    "gruvbox:darkgreen":    [ 100, "79740e"],
+    "gruvbox:darkyellow":   [ 136, "b57614"],
+    "gruvbox:darkblue":     [ 24, "076678"],
+    "gruvbox:darkmagenta":  [ 96, "8f3f71"],
+    "gruvbox:darkcyan":     [ 66, "427b58"],
+    "gruvbox:darkorange":   [ 130, "af3a03"]
 	},
 	"gradients": {
 		"dark_GREEN_Orange_red": [
