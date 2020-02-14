@@ -1,5 +1,7 @@
+#Aliases and functions
 alias config='/usr/bin/git --git-dir=$HOME/.mycfg/ --work-tree=$HOME'
 alias code='code-insiders'
+lxcsh() { lxc exec "$1" -- sudo --login --user ubuntu; }
 
 # Add local bin folder to path
 export PATH=$HOME/bin:$PATH
@@ -18,3 +20,4 @@ source /usr/local/lib/python3.6/dist-packages/powerline/bindings/bash/powerline.
 
 # Use vim keybindings on bash shell
 set -o vi
+
