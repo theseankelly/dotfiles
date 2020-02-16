@@ -1,5 +1,5 @@
 {
-	"name": "Default",
+	"name": "Gruvbox Dark",
 	"groups": {
 		"information:additional":     { "fg": "gruvbox:fg4", "bg": "gruvbox:bg2", "attrs": [] },
 		"information:regular":        { "fg": "gruvbox:fg2", "bg": "gruvbox:bg2", "attrs": ["bold"] },
@@ -41,10 +41,10 @@
 		"battery_empty":              { "fg": "white", "bg": "gray0", "attrs": [] },
 		"player":                     { "fg": "gray10", "bg": "black", "attrs": [] },
 		"user":                       { "fg": "gruvbox:fg0", "bg": "gruvbox:cyan", "attrs": ["bold"] },
-		"branch":                     { "fg": "gruvbox:fg2", "bg": "gruvbox:bg1", "attrs": [] },
+		"branch":                     { "fg": "gruvbox:fg2", "bg": "gruvbox:bg2", "attrs": [] },
 		"branch_dirty":               { "fg": "gruvbox:fg2", "bg": "gruvbox:darkred", "attrs": [] },
-		"branch_clean":               { "fg": "gruvbox:fg2", "bg": "gruvbox:bg1", "attrs": [] },
-		"branch:divider":             { "fg": "gray7", "bg": "gray2", "attrs": [] },
+		"branch_clean":               { "fg": "gruvbox:fg2", "bg": "gruvbox:bg2", "attrs": [] },
+		"branch:divider":             { "fg": "gruvbox:fg2", "bg": "gruvbox:bg2", "attrs": [] },
 		"stash":                      "branch_dirty",
 		"stash:divider":              "branch:divider",
 		"cwd":                        "information:additional",
