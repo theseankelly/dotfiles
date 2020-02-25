@@ -133,6 +133,9 @@ let g:better_whitespace_enabled = 1
 "let g:strip_whitespace_on_save = 1
 "let g:strip_whitespace_confirm = 0
 
+" YouCompleteMe
+let g:ycm_confirm_extra_conf = 0
+
 " Workaround to enable block cursor on mintty
 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
