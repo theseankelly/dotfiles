@@ -5,6 +5,13 @@
 				"function": "powerline.segments.common.env.virtualenv",
 				"priority": 50
 			},
+      {
+        "function": "powerline.segments.common.net.hostname",
+        "priority": 50,
+        "args": {
+          "only_if_ssh": true
+        }
+      },
 			{
 				"function": "powerline.segments.common.vcs.branch",
 				"priority": 40,
