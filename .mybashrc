@@ -9,7 +9,7 @@ export PATH=$HOME/bin:$PATH
 # Set up virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev/python
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
 
 source $HOME/.gruvbox_256palette.sh
 
