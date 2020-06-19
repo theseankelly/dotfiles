@@ -135,6 +135,7 @@ let g:better_whitespace_enabled = 1
 
 " YouCompleteMe
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_windows_after_insertion = 1
 
 " Workaround to enable block cursor on mintty
 let &t_ti.="\e[1 q"
@@ -191,6 +192,7 @@ vnoremap <S-Tab> <<<Esc>gv
 map <Leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 map <Leader>m :TagbarToggle<CR>
+nnoremap <silent> <expr> <c-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Everything below here comes from the default vimrc
