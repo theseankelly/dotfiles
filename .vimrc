@@ -86,8 +86,8 @@ set wildmenu
 set noro
 
 " Put backup/swp files in dedicated directory to avoid cluttering projects
-set backupdir=$HOME/.vim/backup/
-set directory=$HOME/.vim/backup/
+set backupdir=$HOME/.vim/backup//
+set directory=$HOME/.vim/swp//
 
 " Custom search path for tags
 set tags=./tags,./TAGS,tags,TAGS,~/tags

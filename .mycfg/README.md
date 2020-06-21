@@ -34,6 +34,8 @@ config config status.showUntrackedFiles no
   * `sudo pip install virtualenvwrapper`
   * NOTES: use sudo. And I had some trouble with `pip3`.
 * vim
+  * mkdir ~/.vim/backup
+  * mkdir ~/.vim/swp
   * `sudo apt install vim-gtk` to enable LUA support
   * `sudo apt install liblua5.2-dev` (or whichever lua version is in vim...) for `color_coded` support
   * Compile [`color_coded`](https://github.com/jeaye/color_coded#all)
