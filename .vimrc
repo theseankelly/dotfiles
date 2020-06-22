@@ -175,6 +175,11 @@ noremap J }
 noremap H ^
 noremap L $
 
+nnoremap <C-h> <C-W><C-h>
+nnoremap <C-j> <C-W><C-j>
+nnoremap <C-k> <C-W><C-k>
+nnoremap <C-l> <C-W><C-l>
+
 " Make Y consistent with C and D (c$, d$, y$ instead of c$, d$, yy)
 nnoremap Y y$
 
