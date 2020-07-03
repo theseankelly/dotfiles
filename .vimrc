@@ -29,6 +29,7 @@ endif
 call plug#begin('$HOME/.vim/plugged')
 " General functionality/tools
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'majutsushi/tagbar'
