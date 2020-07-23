@@ -32,6 +32,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'majutsushi/tagbar'
 Plug 'vim-syntastic/syntastic'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 if (g:env == 'LINUX')
   Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
@@ -65,6 +66,8 @@ set cursorline
 set colorcolumn=80
 
 set splitright
+
+set autoread
 
 " Always use system clipboard
 set clipboard^=unnamed,unnamedplus
