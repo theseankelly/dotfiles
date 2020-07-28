@@ -27,7 +27,10 @@ config config status.showUntrackedFiles no
 ```
 
 ## Dependent Utilities
-
+* [powerline-fonts](https://github.com/powerline/fonts)
+  * Clone and install; don't use apt
+* Gnome terminal
+  * `dconf load /org/gnome/terminal/legacy/profiles:/ < .gnome-terminal-gruvbox-dark.dconf`
 * [powerline](https://github.com/powerline/powerline)
   * Must use python3 via pip: `sudo python3 -m pip install powerline-status`
 * [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html)
