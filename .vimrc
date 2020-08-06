@@ -140,6 +140,8 @@ colorscheme gruvbox
 " Leader Key
 let mapleader = "\<Space>"
 
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+
 " Basic functions
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
