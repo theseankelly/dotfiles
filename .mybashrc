@@ -22,3 +22,7 @@ source $(python3 -c 'import powerline; print(powerline.__path__[0])')/bindings/b
 # Use vim keybindings on bash shell
 set -o vi
 
+# Emulate vim wildmode=longest:full:list,full on bash tab complete
+bind 'TAB':menu-complete
+bind "set show-all-if-ambiguous on"
+bind "set menu-complete-display-prefix on"
