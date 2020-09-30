@@ -10,7 +10,14 @@ export PATH=$HOME/bin:$PATH
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev/python
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
+
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+  source /usr/local/bin/virtualenvwrapper.sh
+elif [ -f /usr/bin/virtualenvwrapper.sh ]; then
+  source /usr/bin/virtualenvwrapper.sh
+else
+  echo "WARNING: could not find virtualenvwrapper.sh"
+fi
 
 source $HOME/.gruvbox_256palette.sh
 
