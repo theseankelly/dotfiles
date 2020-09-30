@@ -45,7 +45,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -e3 s 5%-
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xterm
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
