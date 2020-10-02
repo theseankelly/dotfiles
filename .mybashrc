@@ -24,7 +24,8 @@ source $HOME/.gruvbox_256palette.sh
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-source $(python3 -c 'import powerline; print(powerline.__path__[0])')/bindings/bash/powerline.sh
+export POWERLINE_PATH=$(python3 -c 'import powerline; print(powerline.__path__[0])')
+source $POWERLINE_PATH/bindings/bash/powerline.sh
 
 # Use vim keybindings on bash shell
 set -o vi
