@@ -190,9 +190,14 @@ bar {
         status_command i3status
 }
 
-###############################################################################ka
+###############################################################################
+# Custom Keybindings
+###############################################################################
+bindsym $mod+Pause exec i3lock
+
+###############################################################################
 # Styling and Aesthetics
-###############################################################################ka
+###############################################################################
 
 # Wallpaper
 exec_always --no-startup-id feh --bg-fill /home/sean/Pictures/wallpaper.jpg
@@ -201,4 +206,4 @@ exec_always --no-startup-id feh --bg-fill /home/sean/Pictures/wallpaper.jpg
 for_window [class="^.*"] border pixel 2
 
 gaps inner 10
-gaps outer 15
+gaps outer 10
