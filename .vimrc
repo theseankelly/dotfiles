@@ -100,6 +100,17 @@ python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
 
+" FZF
+
+" Prevent fzf from searching on the filename returned by rg
+" Thanks to https://github.com/junegunn/fzf.vim/issues/346#issuecomment-518087788
+" Also add preview window, thanks to https://github.com/junegunn/fzf.vim/issues/676#issuecomment-407964464
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   "rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>),
+  \   0,
+  \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
+
 "" Recommended Syntastic settings
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
@@ -142,6 +153,11 @@ let mapleader = "\<Space>"
 
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
+" Edit/reload vimrc
+nnoremap <Leader>ve :e $MYVIMRC<CR>
+nnoremap <Leader>vr :source $MYVIMRC<CR>
+
+
 " Basic functions
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
@@ -170,6 +186,7 @@ vnoremap <Tab> >><Esc>gv
 vnoremap <S-Tab> <<<Esc>gv
 
 " Extension bindings
-map <Leader>m :TagbarToggle<CR>
-nnoremap <silent> <expr> <c-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
+nnoremap <Leader>m :TagbarToggle<CR>
+nnoremap <leader>p :Files<CR>
+nnoremap <leader>f :Rg<CR>
 
