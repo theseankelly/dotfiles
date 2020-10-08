@@ -40,6 +40,6 @@ XTerm*faceSize: 10
 
 ! URxvt
 
-URxvt.font: xft:DejaVu Sans Mono for Powerline:size=10
+URxvt.font: xft:Hack Nerd Font Mono:size=10
 URxvt.scrollBar: false
 URxvt.print-pipe: "cat > /dev/null"
