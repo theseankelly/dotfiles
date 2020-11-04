@@ -18,18 +18,27 @@ set $mod Mod4
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# Lengthen time to screen off/power savings:
+exec --no-startup-id xset s 3600
+exec --no-startup-id xset dpms 0 0 3600
+
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+# Update x settings
+exec_always --no-startup-id autorandr -c
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- unmute
-bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse -q set Master 5%- unmute
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse -q set Master toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # Use xbacklight to adjust laptop screen brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -e3 s +5%
@@ -204,7 +213,7 @@ set $darkgray #1d2021
 font pango:Hack 8
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-fill /home/sean/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
 
 # Disable window titlebars entirely
 for_window [class="^.*"] border pixel 1
