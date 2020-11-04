@@ -43,3 +43,4 @@ XTerm*faceSize: 10
 URxvt.font: xft:CaskaydiaCove Nerd Font:size=10
 URxvt.scrollBar: false
 URxvt.print-pipe: "cat > /dev/null"
+URxvt.perl-ext-common: default,resize-font
