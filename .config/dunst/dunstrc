@@ -1,6 +1,6 @@
 # Credit: https://github.com/a-schaefers/i3-wm-gruvbox-theme/blob/master/dunst/dunstrc
 [global]
-    font = "Hack 10"
+    font = "Roboto 10"
     allow_markup = yes
     format = "<b>%s</b>\n%b"
     sort = yes
@@ -10,7 +10,7 @@
     show_age_threshold = 60
     word_wrap = yes
     ignore_newline = no
-    geometry = "200x5-6+75"
+    geometry = "200x5-6+40"
     transparency = 0
     idle_threshold = 120
     monitor = 0
