@@ -30,15 +30,15 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'majutsushi/tagbar'
-Plug 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 if (g:env == 'LINUX')
   Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
-  Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
-  Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-  Plug 'jeaye/color_coded'
+  "Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer' }
+  "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+  "Plug 'jeaye/color_coded'
 else " WINDOWS
   " Note -- requires FZF be installed via chocolately
   Plug 'junegunn/fzf'
@@ -54,6 +54,7 @@ call plug#end()
 " General Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nowrap
+set mouse=a
 " Show linenumbers
 set number
 set relativenumber
@@ -73,8 +74,8 @@ set autoread
 set clipboard^=unnamed,unnamedplus
 
 " Tab settings
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set	expandtab
 
 " Autocomplete settings
@@ -121,6 +122,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
+let g:syntastic_cpp_include_dirs = [ 'build' ]
 
 " vim-better-whitespace
 let g:better_whitespace_enabled = 1
@@ -151,17 +153,16 @@ colorscheme gruvbox
 " Leader Key
 let mapleader = "\<Space>"
 
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " Edit/reload vimrc
 nnoremap <Leader>ve :e $MYVIMRC<CR>
 nnoremap <Leader>vr :source $MYVIMRC<CR>
 
-
 " Basic functions
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 
+" Navigation functions
 noremap K {
 noremap J }
 noremap H ^
@@ -186,7 +187,11 @@ vnoremap <Tab> >><Esc>gv
 vnoremap <S-Tab> <<<Esc>gv
 
 " Extension bindings
+nnoremap <Leader>a :Rg <C-r><C-w><CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>f :Rg<CR>
 nnoremap <Leader>m :TagbarToggle<CR>
-nnoremap <leader>p :Files<CR>
-nnoremap <leader>f :Rg<CR>
+nnoremap <Leader>p :Files<CR>
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap <Leader>g :Gstatus<CR>
 
