@@ -64,7 +64,7 @@ autocmd InsertLeave * :setlocal relativenumber
 " Enable highlighting of the current line
 set cursorline
 " Draw a vertical line on column 80 (for wrapping)
-set colorcolumn=80
+set colorcolumn=120
 
 set splitright
 
