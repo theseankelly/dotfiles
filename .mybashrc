@@ -10,12 +10,14 @@ export PATH=$HOME/bin:$PATH
 # Set up virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev/python
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=/home/skelly/python/bin/python
 
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
   source /usr/local/bin/virtualenvwrapper.sh
 elif [ -f /usr/bin/virtualenvwrapper.sh ]; then
   source /usr/bin/virtualenvwrapper.sh
+elif [ -f /home/skelly/python/bin/virtualenvwrapper.sh ]; then
+  source /home/skelly/python/bin/virtualenvwrapper.sh
 else
   echo "WARNING: could not find virtualenvwrapper.sh"
 fi
