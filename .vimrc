@@ -144,6 +144,8 @@ command! -bang -nargs=* Rg
   \   0,
   \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 
+let g:fzf_layout = { 'down':'40%' }
+
 "" Recommended Syntastic settings
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
