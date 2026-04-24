@@ -32,14 +32,19 @@ config config status.showUntrackedFiles no
 * Gnome terminal
   * `dconf load /org/gnome/terminal/legacy/profiles:/ < .gnome-terminal-gruvbox-dark.dconf`
 * [powerline](https://github.com/powerline/powerline)
-  * Must use python3 via pip: `sudo python3 -m pip install powerline-status`
+  * Note this was a little difficult to install on a non-standard python interpreter. Needed to install once \
+    on the system default interpreter with pip and again with apt (for vim support)
+  * Use python3 via pip: `pip3 install powerline-status`
+  * Also install via system package `sudo apt install python3-powerline`
 * [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html)
   * `sudo pip install virtualenvwrapper`
   * NOTES: use sudo. And I had some trouble with `pip3`.
 * vim
   * mkdir ~/.vim/backup
   * mkdir ~/.vim/swp
-  * `sudo apt install vim-gtk` to enable LUA support
+  * If you had to do something squirrelly with python for powerline, look in the section of .vimrc to make sure local
+    installs of powerline are de-duped or removed from the python path correctly.
+  * `sudo apt install vim-gtk3` to enable LUA support
   * `sudo apt install liblua5.2-dev` (or whichever lua version is in vim...) for `color_coded` support
   * Compile [`color_coded`](https://github.com/jeaye/color_coded#all)
     ```

@@ -97,9 +97,41 @@ set tags=./tags,./TAGS,tags,TAGS,~/tags
 set noshowmode
 set showtabline=2
 set laststatus=2
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
+
+" This is all we SHOULD need to do:
+"python3 from powerline.vim import setup as powerline_setup
+"python3 powerline_setup()
+"python3 del powerline_setup
+
+" But instead, the default python interpreter is a user-specific one that's
+" conflicting with what vim is trying to use; filter out the paths for the
+" local install
+python3 << EOF
+import sys
+import os
+
+# System paths we SHOULD have
+system_paths = [
+    '/usr/lib/python3.12',
+    '/usr/lib/python3.12/lib-dynload',
+    '/usr/local/lib/python3.12/dist-packages',
+    '/usr/lib/python3/dist-packages'
+]
+
+# Filter out the "broken" custom paths from /home/skelly/python
+# This fixes the 'undefined symbol' crash we started with.
+sys.path = [p for p in sys.path if not p.startswith('/home/skelly/python')]
+
+# 3. Add the system paths back in if they are missing
+for p in system_paths:
+    if p not in sys.path:
+        sys.path.append(p)
+
+# Now import powerline and invoke setup
+from powerline.vim import setup as powerline_setup
+powerline_setup()
+del powerline_setup
+EOF
 
 " FZF
 
